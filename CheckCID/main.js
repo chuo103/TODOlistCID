@@ -167,7 +167,7 @@ function notices() {
 
       const currentTime = new Date();
       const minutes = currentTime.getMinutes();
-      //15と記入されている箇所の数字が通知の間隔時間です。
+      //★15と記入されている箇所の数字が通知の間隔時間です。
       if (Minutes !== minutes && minutes % 15 === 0) {
         Minutes = minutes;
         Push.create('期限の近い予定がございます');

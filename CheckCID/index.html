@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+
+<head>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/push.js/1.0.7/push.min.js"></script>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="style.css">
+
+  <title>TODOリスト</title>
+</head>
+
+<body>
+  <main>
+    <div id="input">
+      <label>TODO: <input id="todo"></label><br>
+      <label for="priority">優先度: </label>
+      <select id="priority">
+        <option>低</option>
+        <option selected>普</option>
+        <option>高</option>
+      </select>
+      <label for="day">日付: <input type="date" id="deadline"> </label>
+      <button id="submit">登録</button>
+    </div>
+
+
+    <table>
+      <tr>
+        <th id="todoLabel">TODO</th>
+        <th id="dateLabel">日付</th>
+        <th>優先度</th>
+        <th>完了</th>
+      </tr>
+    </table>
+
+
+
+    <button id="click-btn">絞り込み</button>
+    <div id="popup-wrapper">
+      <div id="popup-inside">
+        <div id="close">x</div>
+        <div>
+          <label for="filterday">日付: <input type="date" id="filterday"> </label>
+          <div>
+            <div>
+              <div>
+                <label for="filterpriority">優先度:
+                  <select id="filterpriority">
+                    <option>低</option>
+                    <option>普</option>
+                    <option>高</option>
+                  </select>
+                </label>
+              </div>
+              <div>
+                <button id="filterclear">リセット</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+  </main>
+
+  <script>
+    //通知の許可を求める
+    if (Notification.permission === 'granted') {
+
+    } else if (Notification.permission === 'denied') {
+      alert('通知を許可してください');
+
+    } else if (Notification.permission === 'default') {
+      Notification.requestPermission();
+
+    }
+
+
+
+  </script>
+
+
+  <script src="main.js"></script>
+
+
+</body>
+
+</html>

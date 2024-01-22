@@ -135,7 +135,7 @@ filterday.addEventListener('change', () => {
     }
   }
 });
-//通知をする際に予定日が前日のものがあった時にサイトをロードした時と（設定）分ごとに通知を飛ばす
+//通知をする際に予定日が明日のものがあった時にサイトをロードした時と（設定）分ごとに通知を飛ばす
 window.onload = function () {
   for (const item of list) {
     const itemDateNotice = new Date(item.deadline);
@@ -152,6 +152,7 @@ window.onload = function () {
   Notification.requestPermission();
   setInterval(notices, 60000);
 };
+//ここからが設定時間ごとに通知を飛ばす機能
 function notices() {
 
   for (const item of list) {
@@ -166,6 +167,7 @@ function notices() {
 
       const currentTime = new Date();
       const minutes = currentTime.getMinutes();
+      //15と記入されている箇所の数字が通知の間隔時間です。
       if (Minutes !== minutes && minutes % 15 === 0) {
         Minutes = minutes;
         Push.create('期限の近い予定がございます');
